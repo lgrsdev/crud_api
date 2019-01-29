@@ -1,4 +1,4 @@
-# Stores REST Api
+# Flask REST Api
 
 This is built with Flask, Flask-RESTful, Flask-JWT, and Flask-SQLAlchemy.
 
