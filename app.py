@@ -1,3 +1,5 @@
+import os
+
 from datetime import timedelta
 
 from flask import Flask, jsonify
@@ -39,7 +41,7 @@ def customized_error_handler(error):
 # config JWT to expire within half an hour
 app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=1800)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 api.add_resource(Item, '/item/<string:name>')
